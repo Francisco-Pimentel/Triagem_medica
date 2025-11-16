@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Triagem - Sistema Médico</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>➕ Registrar Triagem</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="triagem.html" class="active">Registrar Triagem</a></li>
+                    <li><a href="pacientes-criticos.html">Pacientes Críticos</a></li>
+                    <li><a href="classificacoes.html">Classificações</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>📝 Formulário de Sinais Vitais</h2>
+                
+                <form id="form-triagem" class="triagem-form">
+                    <div class="form-group">
+                        <label for="paciente-id">ID do Paciente:</label>
+                        <input type="number" id="paciente-id" name="paciente-id" required min="1">
+                    </div>
+
+                    <div class="form-section">
+                        <h3>❤️ Sinais Vitais</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="frequencia-cardiaca">Frequência Cardíaca (bpm):</label>
+                                <input type="number" id="frequencia-cardiaca" name="frequencia-cardiaca" required min="20" max="250">
+                            </div>
+                            <div class="form-group">
+                                <label for="pressao-sistolica">Pressão Sistólica (mmHg):</label>
+                                <input type="number" id="pressao-sistolica" name="pressao-sistolica" required min="50" max="300">
+                            </div>
+                            <div class="form-group">
+                                <label for="pressao-diastolica">Pressão Diastólica (mmHg):</label>
+                                <input type="number" id="pressao-diastolica" name="pressao-diastolica" required min="30" max="200">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="frequencia-respiratoria">Frequência Respiratória (rpm):</label>
+                                <input type="number" id="frequencia-respiratoria" name="frequencia-respiratoria" required min="5" max="60">
+                            </div>
+                            <div class="form-group">
+                                <label for="temperatura">Temperatura (°C):</label>
+                                <input type="number" step="0.1" id="temperatura" name="temperatura" required min="30" max="45">
+                            </div>
+                            <div class="form-group">
+                                <label for="saturacao-oxigenio">Sat. Oxigênio (%):</label>
+                                <input type="number" id="saturacao-oxigenio" name="saturacao-oxigenio" required min="50" max="100">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nivel-consciencia">Nível de Consciência:</label>
+                            <select id="nivel-consciencia" name="nivel-consciencia" required>
+                                <option value="">Selecione...</option>
+                                <option value="Alert">Alert - Alerta</option>
+                                <option value="Confused">Confused - Confuso</option>
+                                <option value="Drowsy">Drowsy - Sonolento</option>
+                                <option value="Unresponsive">Unresponsive - Não Responsivo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usuario-id">ID do Profissional:</label>
+                        <input type="number" id="usuario-id" name="usuario-id" required min="1">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">📊 Calcular Escore e Salvar</button>
+                        <button type="reset" class="btn-secondary">🔄 Limpar Formulário</button>
+                    </div>
+                </form>
+
+                <div id="resultado-triagem" class="resultado-container" style="display: none;">
+                    <h3>📈 Resultado da Triagem</h3>
+                    <div id="dados-resultado"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/triagem.js"></script>
+</body>
+</html>

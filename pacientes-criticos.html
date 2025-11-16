@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes Críticos - Sistema Médico</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚨 Pacientes Críticos</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="triagem.html">Registrar Triagem</a></li>
+                    <li><a href="pacientes-criticos.html" class="active">Pacientes Críticos</a></li>
+                    <li><a href="classificacoes.html">Classificações</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="card critical-card">
+                <div class="card-header">
+                    <h2>📋 Lista de Pacientes em Estado Crítico</h2>
+                    <div class="header-actions">
+                        <button onclick="carregarPacientesCriticos()" class="btn-primary">🔄 Atualizar Lista</button>
+                        <button onclick="exportarRelatorio()" class="btn-secondary">📄 Exportar Relatório</button>
+                    </div>
+                </div>
+                
+                <div class="filters">
+                    <input type="text" id="search-paciente" placeholder="🔍 Buscar por ID do paciente..." onkeyup="filtrarPacientes()">
+                    <select id="filter-prioridade" onchange="filtrarPacientes()">
+                        <option value="">Todos os níveis</option>
+                        <option value="CRITICO">Crítico</option>
+                        <option value="ALTO">Alto</option>
+                    </select>
+                </div>
+                
+                <div class="pacientes-info">
+                    <div class="info-badge">
+                        <span class="badge critical">Total: <span id="total-criticos">0</span></span>
+                    </div>
+                </div>
+                
+                <div id="lista-pacientes-criticos" class="pacientes-list">
+                    <div class="loading">Carregando pacientes críticos...</div>
+                </div>
+                
+                <div class="actions">
+                    <button onclick="location.href='triagem.html'" class="btn-primary">➕ Nova Triagem</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/pacientes-criticos.js"></script>
+</body>
+</html>

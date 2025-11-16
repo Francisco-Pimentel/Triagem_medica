@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificações - Sistema Médico</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Todas as Classificações</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="triagem.html">Registrar Triagem</a></li>
+                    <li><a href="pacientes-criticos.html">Pacientes Críticos</a></li>
+                    <li><a href="classificacoes.html" class="active">Classificações</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>📊 Histórico de Classificações</h2>
+                
+                <div class="filters">
+                    <input type="text" id="search-classificacao" placeholder="🔍 Buscar por ID do paciente...">
+                    <select id="filter-nivel">
+                        <option value="">Todos os níveis</option>
+                        <option value="SEM_RISCO">Sem Risco</option>
+                        <option value="BAIXO">Baixo</option>
+                        <option value="MEDIO">Médio</option>
+                        <option value="ALTO">Alto</option>
+                        <option value="CRITICO">Crítico</option>
+                    </select>
+                    <button onclick="carregarClassificacoes()" class="btn-primary">🔍 Filtrar</button>
+                    <button onclick="limparFiltros()" class="btn-secondary">🔄 Limpar</button>
+                </div>
+                
+                <div id="lista-classificacoes" class="classificacoes-list">
+                    <div class="loading">Carregando classificações...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/classificacoes.js"></script>
+</body>
+</html>
